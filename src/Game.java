@@ -74,8 +74,6 @@ public class Game
 
         player = new Player(input.nextLine());
 
-        System.out.println("Welcome " + player.getName());
-
         printWelcome();
 
 
@@ -90,7 +88,7 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome" + player.getName() + " the World of Zuul - Desertification edition!");
+        System.out.println("Welcome " + player.getName() + " to the World of Zuul - Desertification edition!");
         System.out.println("In this game, you will learn about desertificaiton, how to slow it down and even try it out yourself");
         System.out.println("Type '" + CommandWord.HELP + "' if you need assistance along the way!");
         System.out.println();
@@ -127,6 +125,10 @@ public class Game
                 currentRoom.removeTrash();
             }
         }
+        else if (commandWord == CommandWord.ROOMINFO)
+        {
+            printRoomInfo();
+        }
         else if(commandWord == CommandWord.SELL && currentRoom.getType() == 3){
             if(player.hasTrash()){
                 player.sellTrash();
@@ -159,7 +161,7 @@ public class Game
             }
             case 2:
             {
-                System.out.println("This is the tutorial room! Here are some basics about the game:  \b " +
+                System.out.println("This is the tutorial room! Here are some basics about the game:  \n " +
                         "           Insert basic game mechanics here");
                 break;
             }
