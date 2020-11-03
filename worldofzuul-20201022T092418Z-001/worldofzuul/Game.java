@@ -17,7 +17,7 @@ public class Game {
     //test2
     private void createRooms() {
 
-        Room outside, theatre, pub, lab, office;
+      /*  Room outside, theatre, pub, lab, office;
       
         outside = new Room("outside the main entrance of the university");
         theatre = new Room("in a lecture theatre");
@@ -40,10 +40,13 @@ public class Game {
 
         currentRoom = outside;
 
+       */
+
         Room entry, tutorial, currencyRoom,
                 currencyObtainRoom1, currencyObtainRoom, DesertBaseRoom, Desert1,
                 Desert2, Desert3, EndRoom;
 
+        
         entry = new Room("at the entry room. Here you can find information on desertification.");
         tutorial = new Room(" in the tutorial room. Here you can learn how to play the game.");
         currencyRoom = new Room("in the currency room. Here you can exchange your trash for saplings.");
@@ -54,6 +57,8 @@ public class Game {
         Desert2 = new Room("in the second desert. Stop the desertification");
         Desert3 = new Room("in the third desert. Stop the desertification");
         EndRoom = new Room("in the end room. Here is a little test to end the game");
+
+        currentRoom = entry;
 
         entry.setExit("north", tutorial);
 
