@@ -84,7 +84,7 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing " + player.getName() +   ". Good bye.");
     }
 
     private void printWelcome()
@@ -136,11 +136,11 @@ public class Game
         return wantToQuit;
     }
 
-    private void printHelp() 
+    private void printHelp()
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
+        System.out.println("You need to help stop the desertification");
+        System.out.println("to help you need to plant saplings in the desert");
+        System.out.println("To get saplings you need to pick up trash to sell in the CurrencyObtainRoom");
         System.out.println("Your command words are:");
         parser.showCommands();
     }
