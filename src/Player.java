@@ -4,7 +4,7 @@ public class Player {
     private static String name;
     private static Inventory inventory;
     private static Coin coin;
-    //private static Sapling plant;
+
 
 
     public Player(String name){
@@ -41,18 +41,19 @@ public class Player {
         inventory.addSapling();
         coin.removeCoin();
     }
-    public boolean plantSapling(){
-        if(plantSapling() == true) {
+    public void plantSapling() {
+        if (inventory.hasSapling() == true) {
             inventory.removeSapling();
             System.out.println("You have planted a sapling");
+
         }
-        else if (plantSapling() == false)
-            System.out.println("You have no sapling to plant");
-    return
-    }
+        else
+            System.out.println("You have no sapling");
+        }
+
+
     public boolean hasSapling(){
         return inventory.hasSapling();
-
     }
 
     public int getCoins(){

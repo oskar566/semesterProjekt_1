@@ -46,7 +46,9 @@ public class Inventory {
             if (inventory.get(i).getName().equals("Sapling")) {
                 return true;
             }
+            else return false;
         }
         return false;
     }
+
 }
