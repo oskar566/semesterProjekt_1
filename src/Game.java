@@ -94,7 +94,6 @@ public class Game {
 
     private boolean processCommand(Command command) {
         boolean wantToQuit = false;
-        boolean isAnswered = false;
 
         CommandWord commandWord = command.getCommandWord();
 
@@ -123,6 +122,13 @@ public class Game {
                 player.addSapling();
             }
         }
+
+        endRoom();
+        return wantToQuit;
+    }
+
+    private void endRoom(){
+        boolean isAnswered = false;
 
         if (currentRoom.getType() == 7) {
             boolean question1 = false, question2 = false, question3 = false;
@@ -169,8 +175,6 @@ public class Game {
         if(isAnswered){
             System.exit(0);
         }
-
-        return wantToQuit;
     }
 
     private void printHelp() {
