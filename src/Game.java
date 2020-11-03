@@ -111,6 +111,11 @@ public class Game
         if (commandWord == CommandWord.HELP) {
             printHelp();
         }
+        else if (commandWord == CommandWord.INFO)
+        {
+            printInfo();
+        }
+
         else if (commandWord == CommandWord.GO) {
             goRoom(command);
         }
@@ -136,11 +141,14 @@ public class Game
         return wantToQuit;
     }
 
-    private void printHelp()
+    private void printInfo()
     {
         System.out.println("You need to help stop the desertification");
         System.out.println("to help you need to plant saplings in the desert");
         System.out.println("To get saplings you need to pick up trash to sell in the CurrencyObtainRoom");
+    }
+    private void printHelp()
+    {
         System.out.println("Your command words are:");
         parser.showCommands();
     }
