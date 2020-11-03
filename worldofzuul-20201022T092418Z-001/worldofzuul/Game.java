@@ -115,7 +115,7 @@ public class Game {
         CommandWord commandWord = command.getCommandWord();
 
         if (commandWord == CommandWord.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
+            System.out.println("Thats not a valid command" + "Type '" + CommandWord.HELP);
             return false;
         }
 
@@ -130,8 +130,8 @@ public class Game {
     }
 
     private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("Desert is approaching and you must do your part in stopping it");
+        System.out.println("Collect trash to sell for saplings. Plant saplings at the beginning of desert to slow down the process");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
@@ -148,7 +148,7 @@ public class Game {
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            System.out.println("This is not a valid direction, go somewhere else");
         } else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
