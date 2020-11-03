@@ -133,6 +133,11 @@ public class Game
                 player.addSapling();
             }
         }
+        else if(commandWord == CommandWord.PLANT && currentRoom.getType()==6){
+            if(player.hasSapling() == true){
+                player.plantSapling();
+            }
+        }
         return wantToQuit;
     }
 

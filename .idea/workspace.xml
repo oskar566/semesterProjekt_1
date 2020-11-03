@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0878b748-c8f2-4f43-9e5e-4a684650005d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Coin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CommandWord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CommandWords.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Sapling.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Trash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +24,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="semesterProjekt_1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -54,5 +60,24 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="295" key="GridCell.Tab.0.bottom" timestamp="1604407799692">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="295" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1604407799692" />
+    <state width="1237" height="295" key="GridCell.Tab.0.center" timestamp="1604407799692">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="295" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1604407799692" />
+    <state width="1237" height="295" key="GridCell.Tab.0.left" timestamp="1604407799691">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="295" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1604407799691" />
+    <state width="1237" height="295" key="GridCell.Tab.0.right" timestamp="1604407799692">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="295" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1604407799692" />
   </component>
 </project>
