@@ -102,9 +102,15 @@ public class Game {
 
     private void printWelcome() {
         System.out.println();
+<<<<<<< Updated upstream:worldofzuul-20201022T092418Z-001/worldofzuul/Game.java
         System.out.println("Welcome to the World of Zuul, desertification edition!");
         System.out.println("In this game, you will learn about desertification, one of the ways to slow it down and even try it out yourself!");
         System.out.println("Type '" + CommandWord.HELP + "' if you need any assistance along the way!");
+=======
+        System.out.println("Welcome to the World of Zuul desertification edition!");
+        System.out.println("In this game, you will learn about desertification, how it can be slowed down and even help");
+        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+>>>>>>> Stashed changes:src/Game.java
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
