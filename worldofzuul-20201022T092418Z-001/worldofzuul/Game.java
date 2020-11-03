@@ -8,6 +8,7 @@ public class Game
 
     //Test Aksel
     //test oskar
+    // test Lasse
 
     public Game() 
     {
