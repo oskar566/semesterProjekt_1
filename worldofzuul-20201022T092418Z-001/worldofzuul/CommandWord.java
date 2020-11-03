@@ -1,6 +1,6 @@
 package worldofzuul;
 
-public enum CommandWord
+public enum CommandWord //testOT
 {
     GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?");
     
