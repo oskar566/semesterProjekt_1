@@ -102,9 +102,9 @@ public class Game {
 
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("This is a game...");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println("Welcome to the World of Zuul, desertification edition!");
+        System.out.println("In this game, you will learn about desertification, one of the ways to slow it down and even try it out yourself!");
+        System.out.println("Type '" + CommandWord.HELP + "' if you need any assistance along the way!");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
