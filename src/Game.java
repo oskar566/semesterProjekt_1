@@ -62,6 +62,7 @@ public class Game
 
         Desert3.setExit("north", EndRoom);
         Desert3.setExit("south", DesertBaseRoom);
+        EndRoom.setExit("south", Desert3);
 
         currentRoom = entry;
     }
@@ -132,6 +133,10 @@ public class Game
             if(player.getCoins()>0){
                 player.addSapling();
             }
+        }
+
+        if (currentRoom.getType() == 7){
+            System.out.println("ENDROOM");
         }
         return wantToQuit;
     }
