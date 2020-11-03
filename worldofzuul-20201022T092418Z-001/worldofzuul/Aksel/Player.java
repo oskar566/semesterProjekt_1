@@ -1,10 +1,9 @@
 package Aksel;
 
-import worldofzuul.Coin;
 
 public class Player {
 
-    private static int coins;
+
     private static String name;
     private static Inventory inventory;
     private static Coin coin;
