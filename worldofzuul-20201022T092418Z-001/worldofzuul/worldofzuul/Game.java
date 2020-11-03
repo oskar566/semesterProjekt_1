@@ -4,7 +4,11 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-        
+
+
+    //Test Aksel
+    //test oskar
+    // test Lasse
 
     public Game() 
     {
