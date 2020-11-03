@@ -12,9 +12,6 @@ public class Game
         parser = new Parser();
     }
 
-    //test
-    //test2
-    //test3
 
     private void createRooms()
     {
