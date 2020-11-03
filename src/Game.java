@@ -104,7 +104,7 @@ public class Game
         CommandWord commandWord = command.getCommandWord();
 
         if(commandWord == CommandWord.UNKNOWN) {
-            System.out.println("Thats not a valid command " + "Type" + CommandWord.HELP + ");
+            System.out.println("That's not a valid command " + "Type" + CommandWord.HELP);
             return false;
         }
 
@@ -115,7 +115,6 @@ public class Game
         {
             printInfo();
         }
-
         else if (commandWord == CommandWord.GO) {
             goRoom(command);
         }
@@ -146,6 +145,54 @@ public class Game
         System.out.println("You need to help stop the desertification");
         System.out.println("to help you need to plant saplings in the desert");
         System.out.println("To get saplings you need to pick up trash to sell in the CurrencyObtainRoom");
+    }
+
+    private void printRoomInfo()
+    {
+        switch(currentRoom.getType())
+        {
+            case 1:
+            {
+                System.out.println("This is the entry room \n " +
+                                    " here you can information about desertification... and not much else :)  \b ");
+                break;
+            }
+            case 2:
+            {
+                System.out.println("This is the tutorial room! Here are some basics about the game:  \b " +
+                        "           Insert basic game mechanics here");
+                break;
+            }
+            case 3:
+            {
+                System.out.println("This is the CurrencyRoom, here you can sell your collected trash for coins \b " +
+                        "           and buy saplings for planting");
+                break;
+            }
+            case 4:
+            {
+                System.out.println("This is the room where you collect trash. \b" +
+                        "           Collected trash can be sold for coins in the CurrencyRoom");
+                break;
+            }
+            case 5:
+            {
+                System.out.println("This is the desertbase, this room will guide you to the other rooms");
+                break;
+            }
+            case 6:
+            {
+                System.out.println("This is the desert! Here your job is to plant your saplings to stop desertification");
+                break;
+            }
+            case 7:
+            {
+                System.out.println("This is the endRoom. You have planted all the saplings required. " +
+                        "        \b You will now be quizzed about desertification");
+                break;
+            }
+
+        }
     }
     private void printHelp()
     {

@@ -1,6 +1,6 @@
 public enum CommandWord
 {
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), PICKUP("pickup"), SELL("sell"), BUY("buy"), INFO("info");
+    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), PICKUP("pickup"), SELL("sell"), BUY("buy"), INFO("info"), ROOMINFO("RoomInfo");
     
     private String commandString;
     
