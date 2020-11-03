@@ -90,9 +90,9 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println("Welcome" + player.getName() + " the World of Zuul - Desertification edition!");
+        System.out.println("In this game, you will learn about desertificaiton, how to slow it down and even try it out yourself");
+        System.out.println("Type '" + CommandWord.HELP + "' if you need assistance along the way!");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
@@ -104,7 +104,7 @@ public class Game
         CommandWord commandWord = command.getCommandWord();
 
         if(commandWord == CommandWord.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
+            System.out.println("Thats not a valid command " + "Type" + CommandWord.HELP + ");
             return false;
         }
 
