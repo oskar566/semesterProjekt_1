@@ -17,9 +17,7 @@ public class Player {
     }
 
 
-    public void waterSapling(){
 
-    }
 
     public boolean hasTrash(){
         return inventory.hasTrash();
@@ -30,8 +28,10 @@ public class Player {
     }
 
     public void sellTrash(){
-        inventory.removeTrash();
-        coin.addCoin();
+        for(int i=0;i< inventory.getSize();i++) {
+            inventory.removeTrash();
+            coin.addCoin();
+        }
     }
 
     public void addTrash(){
@@ -49,5 +49,9 @@ public class Player {
 
     public String getName(){
         return this.name;
+    }
+
+    public void printPlayerInventory(){
+        System.out.println(inventory.printInventory());
     }
 }

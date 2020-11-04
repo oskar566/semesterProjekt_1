@@ -94,6 +94,7 @@ public class Game
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
+        player.printPlayerInventory();
         System.out.println(currentRoom.getLongDescription());
     }
 
@@ -126,12 +127,15 @@ public class Game
         else if(commandWord == CommandWord.SELL && currentRoom.getType() == 3){
             if(player.hasTrash()){
                 player.sellTrash();
+
             }
         }
         else if(commandWord == CommandWord.BUY && currentRoom.getType()==3){
-            if(player.getCoins()>0){
+            int coins=player.getCoins();
+            for(int i=0;i<coins;i++){
                 player.addSapling();
             }
+
         }
         return wantToQuit;
     }
@@ -161,6 +165,7 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
+            player.printPlayerInventory();
             System.out.println(currentRoom.getLongDescription());
         }
     }

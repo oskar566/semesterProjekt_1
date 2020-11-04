@@ -14,7 +14,10 @@ public class Inventory {
     }
 
     public void addTrash(){
-        inventory.add(new Sapling());
+        inventory.add(new Trash());
+    }
+    public int getSize(){
+        return inventory.size();
     }
 
     public void removeSapling(){
@@ -40,5 +43,20 @@ public class Inventory {
             }
         }
         return false;
+    }
+    public String printInventory(){
+        int saplingCount=0;
+        int trashCount=0;
+
+        for(int i=0;i< inventory.size();i++){
+            if(inventory.get(i).getName().equals("Sapling")){
+                saplingCount++;
+            }
+            if(inventory.get(i).getName().equals("Trash")){
+                trashCount++;
+            }
+
+        }
+        return "Inventory: "+trashCount+" Trash " +saplingCount+" Saplings";
     }
 }

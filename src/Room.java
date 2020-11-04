@@ -9,6 +9,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
 
+
     // 1 = Entry, 2 = Tutorial, 3 = CurrencyRoom, 4 = currencyObtain, 5 = desertBase, 6 = desert, 7 = endRoom
     private int type;
 
