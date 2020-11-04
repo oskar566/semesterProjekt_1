@@ -140,6 +140,9 @@ public class Game
         }
         else if(commandWord == CommandWord.BUY && currentRoom.getType()==3){
             int coins=player.getCoins();
+            if(coins == 0){
+                System.out.println("You do not have enough coins to buy any saplings.");
+            }
             for(int i=0;i<coins;i++){
                 player.addSapling();
             }
