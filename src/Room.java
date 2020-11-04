@@ -22,8 +22,10 @@ public class Room
         this.type = type;
     }
 
-    public void addTrash(){
-        inventory.addTrash();
+    public void addTrash(int amountOfTrash){
+        for (int i = 0; i < amountOfTrash; i++) {
+            inventory.addTrash();
+        }
     }
     public void removeTrash(){
         inventory.removeTrash();
@@ -61,5 +63,14 @@ public class Room
     {
         return exits.get(direction);
     }
+
+    public void printRoomInventory(){
+        System.out.println("Room contains " + inventory.countTrash() + " pieces of trash.");
+    }
+
+    public boolean containsTrash(){
+        return inventory.hasTrash();
+    }
+
 }
 

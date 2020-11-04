@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Inventory {
 
-    private static ArrayList<Item> inventory;
+    private ArrayList<Item> inventory;
 
     public Inventory() {
         inventory = new ArrayList<Item>();
@@ -44,7 +44,7 @@ public class Inventory {
         }
         return false;
     }
-    public String printInventory(){
+    public int[] countInventory(){
         int saplingCount=0;
         int trashCount=0;
 
@@ -55,8 +55,31 @@ public class Inventory {
             if(inventory.get(i).getName().equals("Trash")){
                 trashCount++;
             }
-
         }
-        return "Inventory: "+trashCount+" Trash " +saplingCount+" Saplings";
+        int[] ints = new int[2];
+        ints[0] = saplingCount;
+        ints[1] = trashCount;
+        return ints;
     }
+
+    public int countSapling() {
+        int saplingCount = 0;
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getName().equals("Sapling")) {
+                saplingCount++;
+            }
+        }
+        return saplingCount;
+    }
+    public int countTrash() {
+        int trashCount = 0;
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getName().equals("Trash")) {
+                trashCount++;
+            }
+        }
+        return trashCount;
+    }
+
+
 }
