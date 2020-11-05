@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-
 public class Player {
 
     private static int coins;
     private static String name;
     private static Inventory inventory;
     private static Coin coin;
+
 
 
     public Player(String name){
@@ -41,6 +40,20 @@ public class Player {
     public void addSapling(){
         inventory.addSapling();
         coin.removeCoin();
+    }
+    public void plantSapling() {
+        if (inventory.hasSapling() == true) {
+            inventory.removeSapling();
+            System.out.println("You have planted a sapling");
+
+        }
+        else
+            System.out.println("You have no sapling");
+        }
+
+
+    public boolean hasSapling(){
+        return inventory.hasSapling();
     }
 
     public int getCoins(){

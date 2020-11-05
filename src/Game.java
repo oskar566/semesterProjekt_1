@@ -144,6 +144,10 @@ public class Game
                 player.addSapling();
             }
         }
+        else if(commandWord == CommandWord.PLANT && currentRoom.getType()==6){ {
+                player.plantSapling();
+            }
+        }
         return wantToQuit;
     }
 

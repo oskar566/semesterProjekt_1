@@ -41,4 +41,14 @@ public class Inventory {
         }
         return false;
     }
+    public boolean hasSapling() {
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getName().equals("Sapling")) {
+                return true;
+            }
+            else return false;
+        }
+        return false;
+    }
+
 }
