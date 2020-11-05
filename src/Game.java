@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
-public class Game
-{
+
+
+public class Game {
+
     private Parser parser;
     private Room currentRoom;
     private Player player;
