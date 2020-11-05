@@ -169,11 +169,25 @@ public class Game
                         "           use commandword help & roominfo for specific info on the current room");
                 break;
             }
+<<<<<<< Updated upstream
             case 3:
             {
                 System.out.println("This is the CurrencyRoom, here you can sell your collected trash for coins \b " +
                         "           and buy saplings for planting, commandwords are: buy & sell");
                 break;
+=======
+            System.out.println("Here is another question");
+            System.out.println("Question 2: What is 2 * 6?");
+            while (!question3) {
+                if (input.nextLine().equals("12")) {
+                    System.out.println("Correct. Thanks for playing");
+                    question3 = true;
+                    isAnswered = true;
+                } else {
+                    System.out.println("Try again, Here are some hints");
+                    System.out.println("15    14    12");
+                }
+>>>>>>> Stashed changes
             }
             case 4:
             {
