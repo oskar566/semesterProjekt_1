@@ -17,7 +17,6 @@ public class Player {
     }
 
 
-
     public boolean hasTrash(){
         return inventory.hasTrash();
     }
@@ -53,5 +52,13 @@ public class Player {
 
     public void printPlayerInventory(){
         System.out.println("Player inventory " + "Coins:" + getCoins() + " Trash:" + inventory.countTrash() +" Sapling:" + inventory.countSapling());
+    }
+
+    public void plant() {
+        inventory.removeSapling();
+    }
+
+    public boolean hasSapling() {
+        return inventory.hasSapling();
     }
 }

@@ -44,6 +44,15 @@ public class Inventory {
         }
         return false;
     }
+
+    public boolean hasSapling(){
+        for (int i = 0; i < inventory.size(); i++) {
+            if(inventory.get(i).getName().equals("Sapling")){
+                return true;
+            }
+        }
+        return false;
+    }
     public int[] countInventory(){
         int saplingCount=0;
         int trashCount=0;

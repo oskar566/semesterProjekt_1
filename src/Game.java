@@ -7,7 +7,6 @@ public class Game
     private Player player;
 
     Scanner input = new Scanner(System.in);
-        
 
     public Game() 
     {
@@ -24,7 +23,7 @@ public class Game
                 Desert2, Desert3, EndRoom;
 
         entry = new Room("At the entry room. Here you can find information on desertification.", 1);
-        tutorial = new Room("\nIn the tutorial room. Here you can learn how to play the game. " +
+        tutorial = new Room("in the tutorial room. Here you can learn how to play the game. " +
                                         "\nHere are some basics about the game:\n" +
                                         "Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \n" +
                                         "use commandword: help & roominfo for specific info on the current room", 2);
@@ -156,6 +155,17 @@ public class Game
             }
             for(int i=0;i<coins;i++){
                 player.addSapling();
+            }
+            player.printPlayerInventory();
+        }
+        else if(commandWord == CommandWord.PLANT ){
+            if(player.hasSapling() && currentRoom.getType() == 6){
+                player.plant();
+                System.out.println("A tree has been planted");
+            }else if(currentRoom.getType() != 6){
+                System.out.println("You cant plant here");
+            }else {
+                System.out.println("You dont have any saplings");
             }
             player.printPlayerInventory();
         }
