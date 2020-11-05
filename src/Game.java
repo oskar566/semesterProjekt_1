@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Game
 {
+
+    //test
     private Parser parser;
     private Room currentRoom;
     private Player player;
@@ -21,8 +23,11 @@ public class Game
                 currencyObtainRoom1, currencyObtainRoom, DesertBaseRoom, Desert1,
                 Desert2, Desert3, EndRoom;
 
-        entry = new Room("at the entry room. Here you can find information on desertification.", 1);
-        tutorial = new Room(" in the tutorial room. Here you can learn how to play the game.", 2);
+        entry = new Room("At the entry room. Here you can find information on desertification.", 1);
+        tutorial = new Room(" In the tutorial room. Here you can learn how to play the game. " +
+                "                        \n Here are some basics about the game:  \\n \" +\n" +
+                "                        \"           Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \\n\" +\n" +
+                "                        \"           use commandword: help & roominfo for specific info on the current room\"", 2);
         currencyRoom = new Room("in the currency room. Here you can exchange your trash for saplings.", 3);
 
         currencyObtainRoom = new Room("in the currency obtain room. Here you can harvest trash.", 4);
@@ -74,8 +79,6 @@ public class Game
 
         player = new Player(input.nextLine());
 
-        System.out.println("Welcome " + player.getName());
-
         printWelcome();
 
 
@@ -84,15 +87,15 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing " + player.getName() +   ". Good bye.");
     }
 
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println("Welcome " + player.getName() + " to the World of Zuul - Desertification edition!");
+        System.out.println("In this game, you will learn about desertificaiton, how to slow it down and even try it out yourself");
+        System.out.println("Type '" + CommandWord.HELP + "' if you need assistance along the way!");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
@@ -104,12 +107,16 @@ public class Game
         CommandWord commandWord = command.getCommandWord();
 
         if(commandWord == CommandWord.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
+            System.out.println("That's not a valid command " + "Type" + CommandWord.HELP);
             return false;
         }
 
         if (commandWord == CommandWord.HELP) {
             printHelp();
+        }
+        else if (commandWord == CommandWord.INFO)
+        {
+            printInfo();
         }
         else if (commandWord == CommandWord.GO) {
             goRoom(command);
@@ -122,6 +129,10 @@ public class Game
                 player.addTrash();
                 currentRoom.removeTrash();
             }
+        }
+        else if (commandWord == CommandWord.ROOMINFO)
+        {
+            printRoomInfo();
         }
         else if(commandWord == CommandWord.SELL && currentRoom.getType() == 3){
             if(player.hasTrash()){
@@ -140,11 +151,62 @@ public class Game
         return wantToQuit;
     }
 
-    private void printHelp() 
+    private void printInfo()
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
+        System.out.println("You need to help stop the desertification");
+        System.out.println("to help you need to plant saplings in the desert");
+        System.out.println("To get saplings you need to pick up trash to sell in the CurrencyObtainRoom");
+    }
+
+    private void printRoomInfo()
+    {
+        switch(currentRoom.getType())
+        {
+            case 1:
+            {
+                System.out.println("This is the entry room \n " +
+                                    " here you can information about desertification... and not much else :)  \b ");
+                break;
+            }
+            case 2:
+            {
+                System.out.println("This is the tutorial room! Here are some basics about the game:  \n " +
+                        "           Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \n" +
+                        "           use commandword help & roominfo for specific info on the current room");
+                break;
+            }
+            case 3: {
+                System.out.println("This is the CurrencyRoom, here you can sell your collected trash for coins \b " +
+                        "           and buy saplings for planting, commandwords are: buy & sell");
+                break;
+            }
+            case 4:
+            {
+                System.out.println("This is the room where you collect trash. \b" +
+                        "           Collected trash can be sold for coins in the CurrencyRoom, commandwords are: pickup");
+                break;
+            }
+            case 5:
+            {
+                System.out.println("This is the desertbase, this room will guide you to the other rooms");
+                break;
+            }
+            case 6:
+            {
+                System.out.println("This is the desert! Here your job is to plant your saplings to stop desertification, commandword is: plant");
+                break;
+            }
+            case 7:
+            {
+                System.out.println("This is the endRoom. You have planted all the saplings required. " +
+                        "        \b You will now be quizzed about desertification");
+                break;
+            }
+
+        }
+    }
+    private void printHelp()
+    {
         System.out.println("Your command words are:");
         parser.showCommands();
     }
