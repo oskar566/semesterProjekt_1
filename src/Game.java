@@ -37,7 +37,7 @@ public class Game {
         entry.setExit("north", tutorial);
 
         tutorial.setExit("north", currencyRoom);
-        tutorial.setExit("south", tutorial);
+        //tutorial.setExit("south", tutorial);
 
         currencyRoom.setExit("north", DesertBaseRoom);
         currencyRoom.setExit("west", currencyObtainRoom);
