@@ -21,8 +21,11 @@ public class Game
                 currencyObtainRoom1, currencyObtainRoom, DesertBaseRoom, Desert1,
                 Desert2, Desert3, EndRoom;
 
-        entry = new Room("at the entry room. Here you can find information on desertification.", 1);
-        tutorial = new Room(" in the tutorial room. Here you can learn how to play the game.", 2);
+        entry = new Room("At the entry room. Here you can find information on desertification.", 1);
+        tutorial = new Room(" In the tutorial room. Here you can learn how to play the game. " +
+                "                        \n Here are some basics about the game:  \\n \" +\n" +
+                "                        \"           Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \\n\" +\n" +
+                "                        \"           use commandword: help & roominfo for specific info on the current room\"", 2);
         currencyRoom = new Room("in the currency room. Here you can exchange your trash for saplings.", 3);
 
         currencyObtainRoom = new Room("in the currency obtain room. Here you can harvest trash.", 4);
@@ -162,19 +165,20 @@ public class Game
             case 2:
             {
                 System.out.println("This is the tutorial room! Here are some basics about the game:  \n " +
-                        "           Insert basic game mechanics here");
+                        "           Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \n" +
+                        "           use commandword help & roominfo for specific info on the current room");
                 break;
             }
             case 3:
             {
                 System.out.println("This is the CurrencyRoom, here you can sell your collected trash for coins \b " +
-                        "           and buy saplings for planting");
+                        "           and buy saplings for planting, commandwords are: buy & sell");
                 break;
             }
             case 4:
             {
                 System.out.println("This is the room where you collect trash. \b" +
-                        "           Collected trash can be sold for coins in the CurrencyRoom");
+                        "           Collected trash can be sold for coins in the CurrencyRoom, commandwords are: pickup");
                 break;
             }
             case 5:
@@ -184,7 +188,7 @@ public class Game
             }
             case 6:
             {
-                System.out.println("This is the desert! Here your job is to plant your saplings to stop desertification");
+                System.out.println("This is the desert! Here your job is to plant your saplings to stop desertification, commandword is: plant");
                 break;
             }
             case 7:
