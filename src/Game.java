@@ -5,6 +5,8 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Player player;
+
+    Scanner input = new Scanner(System.in);
         
 
     public Game() 
@@ -22,10 +24,10 @@ public class Game
                 Desert2, Desert3, EndRoom;
 
         entry = new Room("At the entry room. Here you can find information on desertification.", 1);
-        tutorial = new Room(" In the tutorial room. Here you can learn how to play the game. " +
-                "                        \n Here are some basics about the game:  \\n \" +\n" +
-                "                        \"           Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \\n\" +\n" +
-                "                        \"           use commandword: help & roominfo for specific info on the current room\"", 2);
+        tutorial = new Room("\nIn the tutorial room. Here you can learn how to play the game. " +
+                                        "\nHere are some basics about the game:\n" +
+                                        "Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \n" +
+                                        "use commandword: help & roominfo for specific info on the current room", 2);
         currencyRoom = new Room("in the currency room. Here you can exchange your trash for saplings.", 3);
 
         currencyObtainRoom = new Room("in the currency obtain room. Here you can harvest trash.", 4);
@@ -72,7 +74,7 @@ public class Game
     public void play() 
     {            
 
-        Scanner input = new Scanner(System.in);
+
         System.out.println("Enter your name: ");
 
         player = new Player(input.nextLine());
@@ -142,7 +144,58 @@ public class Game
                 player.addSapling();
             }
         }
+        endRoom();
         return wantToQuit;
+    }
+
+    private void endRoom(){
+        boolean isAnswered = false;
+
+        if (currentRoom.getType() == 7) {
+            boolean question1 = false, question2 = false, question3 = false;
+
+            System.out.println("You are almost finished. You need to answer the following questions correctly");
+            System.out.println("Question 1: What is 1+1");
+
+            while (!question1) {
+                if (input.nextLine().equals("2")) {
+                    System.out.println("Correct");
+                    question1 = true;
+                } else {
+                    System.out.println("Try again, Here are some hints");
+                    System.out.println("3    4    2");
+                    //question1 = false;
+                }
+            }
+            System.out.println("Here is another question");
+            System.out.println("Question 2: What is 2 + 2?");
+            while (!question2) {
+                if (input.nextLine().equals("4")) {
+                    System.out.println("Correct");
+                    question2 = true;
+                } else {
+                    System.out.println("Try again, Here are some hints");
+                    System.out.println("5    4    9");
+                    //question2 = false;
+                }
+            }
+            System.out.println("Here is another question");
+            System.out.println("Question 2: What is 2 * 6?");
+            while (!question3) {
+                if (input.nextLine().equals("12")) {
+                    System.out.println("Correct. Thanks for playing");
+                    question3 = true;
+                    isAnswered = true;
+                } else {
+                    System.out.println("Try again, Here are some hints");
+                    System.out.println("15    14    12");
+                    //question2 = false;
+                }
+            }
+        }
+        if(isAnswered){
+            System.exit(0);
+        }
     }
 
     private void printInfo()
@@ -171,14 +224,12 @@ public class Game
             }
             case 3:
             {
-                System.out.println("This is the CurrencyRoom, here you can sell your collected trash for coins \b " +
-                        "           and buy saplings for planting, commandwords are: buy & sell");
+                System.out.println("This is the CurrencyRoom, here you can sell your collected trash for coins \n and buy saplings for planting, commandwords are: buy & sell");
                 break;
             }
             case 4:
             {
-                System.out.println("This is the room where you collect trash. \b" +
-                        "           Collected trash can be sold for coins in the CurrencyRoom, commandwords are: pickup");
+                System.out.println("This is the room where you collect trash.\n Collected trash can be sold for coins in the CurrencyRoom, commandwords are: pickup");
                 break;
             }
             case 5:
@@ -194,7 +245,7 @@ public class Game
             case 7:
             {
                 System.out.println("This is the endRoom. You have planted all the saplings required. " +
-                        "        \b You will now be quizzed about desertification");
+                        "\n You will now be quizzed about desertification");
                 break;
             }
 
