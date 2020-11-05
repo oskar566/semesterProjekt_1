@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0878b748-c8f2-4f43-9e5e-4a684650005d" name="Default Changelist" comment="" />
+    <list default="true" id="0878b748-c8f2-4f43-9e5e-4a684650005d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,10 +59,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1604406012354">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1604474641953">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604406012354" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604474641953" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1604429440885">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -77,6 +79,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604429440885" />
+    <state x="360" y="33" key="new project wizard" timestamp="1604474643256">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="360" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1604474643256" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1604406984792">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
