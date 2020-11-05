@@ -31,10 +31,10 @@ public class Game
         currencyRoom = new Room("in the currency room. Here you can exchange your trash for saplings.", 3);
 
         currencyObtainRoom = new Room("in the currency obtain room. Here you can harvest trash.", 4);
-        currencyObtainRoom.addTrash();
+        currencyObtainRoom.addTrash(5);
 
         currencyObtainRoom1 = new Room("currency obtain room. Here you can harvest trash.", 4);
-        currencyObtainRoom1.addTrash();
+        currencyObtainRoom1.addTrash(3);
 
         DesertBaseRoom = new Room("in the desert base room. Choose a direction to go to a desert", 5);
         Desert1 = new Room("in the first desert. Stop the desertification", 6);
@@ -97,6 +97,7 @@ public class Game
         System.out.println("In this game, you will learn about desertificaiton, how to slow it down and even try it out yourself");
         System.out.println("Type '" + CommandWord.HELP + "' if you need assistance along the way!");
         System.out.println();
+        player.printPlayerInventory();
         System.out.println(currentRoom.getLongDescription());
     }
 
@@ -125,9 +126,15 @@ public class Game
             wantToQuit = quit(command);
         }
         else if (commandWord == CommandWord.PICKUP) {
-            if(currentRoom.getType() == 4){
-                player.addTrash();
-                currentRoom.removeTrash();
+            if(currentRoom.getType() == 4 && currentRoom.containsTrash()){
+                while(currentRoom.containsTrash()){
+                    player.addTrash();
+                    currentRoom.removeTrash();
+                }
+                player.printPlayerInventory();
+                currentRoom.printRoomInventory();
+            }else{
+                System.out.println("Room contains no trash.");
             }
         }
         else if (commandWord == CommandWord.ROOMINFO)
@@ -137,12 +144,20 @@ public class Game
         else if(commandWord == CommandWord.SELL && currentRoom.getType() == 3){
             if(player.hasTrash()){
                 player.sellTrash();
+                player.printPlayerInventory();
+            }else{
+                System.out.println("You have no trash to sell.");
             }
         }
         else if(commandWord == CommandWord.BUY && currentRoom.getType()==3){
-            if(player.getCoins()>0){
+            int coins=player.getCoins();
+            if(coins == 0){
+                System.out.println("You do not have enough coins to buy any saplings.");
+            }
+            for(int i=0;i<coins;i++){
                 player.addSapling();
             }
+            player.printPlayerInventory();
         }
         endRoom();
         return wantToQuit;
@@ -259,6 +274,7 @@ public class Game
 
     private void goRoom(Command command) 
     {
+
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
@@ -268,13 +284,19 @@ public class Game
 
         Room nextRoom = currentRoom.getExit(direction);
 
+
         if (nextRoom == null) {
             System.out.println("There is no door!");
         }
         else {
             currentRoom = nextRoom;
+            player.printPlayerInventory();
+            if(nextRoom != null && nextRoom.getType() == 4){
+                nextRoom.printRoomInventory();
+            }
             System.out.println(currentRoom.getLongDescription());
         }
+
     }
 
     private boolean quit(Command command) 
@@ -287,4 +309,6 @@ public class Game
             return true;
         }
     }
+
+
 }

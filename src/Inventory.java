@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Inventory {
 
-    private static ArrayList<Item> inventory;
+    private ArrayList<Item> inventory;
 
     public Inventory() {
         inventory = new ArrayList<Item>();
@@ -14,7 +14,10 @@ public class Inventory {
     }
 
     public void addTrash(){
-        inventory.add(new Sapling());
+        inventory.add(new Trash());
+    }
+    public int getSize(){
+        return inventory.size();
     }
 
     public void removeSapling(){
@@ -41,4 +44,42 @@ public class Inventory {
         }
         return false;
     }
+    public int[] countInventory(){
+        int saplingCount=0;
+        int trashCount=0;
+
+        for(int i=0;i< inventory.size();i++){
+            if(inventory.get(i).getName().equals("Sapling")){
+                saplingCount++;
+            }
+            if(inventory.get(i).getName().equals("Trash")){
+                trashCount++;
+            }
+        }
+        int[] ints = new int[2];
+        ints[0] = saplingCount;
+        ints[1] = trashCount;
+        return ints;
+    }
+
+    public int countSapling() {
+        int saplingCount = 0;
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getName().equals("Sapling")) {
+                saplingCount++;
+            }
+        }
+        return saplingCount;
+    }
+    public int countTrash() {
+        int trashCount = 0;
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getName().equals("Trash")) {
+                trashCount++;
+            }
+        }
+        return trashCount;
+    }
+
+
 }
