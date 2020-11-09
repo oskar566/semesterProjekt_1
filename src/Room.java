@@ -76,5 +76,8 @@ public class Room
         return false;
     }
 
+    public void notUsed2(){
+    System.out.println();
+}
 }
 
