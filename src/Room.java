@@ -97,18 +97,5 @@ public class Room
         return inventory.hasTrash();
     }
 
-    public boolean notUsed(){
-        return false;
-    }
-
-
-    public int notUsedInt(){
-        return 4;
-    }
-
-    public void notUsed2(){
-    System.out.println();
-}
-
 }
 

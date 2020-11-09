@@ -19,27 +19,30 @@ public class Game {
     private void createRooms() {
 
         Room entry, tutorial, currencyRoom,
-                currencyObtainRoom1, currencyObtainRoom, DesertBaseRoom, Desert1,
-                Desert2, Desert3, EndRoom;
+                currencyObtainRoom1, currencyObtainRoom, desertBaseRoom, desert1,
+                desert2, desert3, endRoom;
 
         entry = new Room("At the entry room. Here you can find information on desertification.", 1);
         tutorial = new Room("in the tutorial room. Here you can learn how to play the game. " +
                 "\nHere are some basics about the game:\n" +
                 "Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \n" +
                 "use commandword: help & roominfo for specific info on the current room", 2);
-        currencyRoom = new Room("in the currency room. Here you can exchange your trash for saplings.", 3);
+        currencyRoom = new Room("in the vendor room. Here you can exchange your trash for saplings.", 3);
 
-        currencyObtainRoom = new Room("in the currency obtain room. Here you can harvest trash.", 4);
-        currencyObtainRoom.addTrash(15);
+        currencyObtainRoom = new Room("trash room. Here you can harvest trash.", 4);
+        currencyObtainRoom.addTrash(8);
 
-        currencyObtainRoom1 = new Room("currency obtain room. Here you can harvest trash.", 4);
+        currencyObtainRoom1 = new Room("trash room. Here you can harvest trash.", 4);
         currencyObtainRoom1.addTrash(5);
 
-        DesertBaseRoom = new Room("in the desert base room. Choose a direction to go to a desert", 5);
-        Desert1 = new Room("in the first desert. Stop the desertification", 6);
-        Desert2 = new Room("in the second desert. Stop the desertification", 8);
-        Desert3 = new Room("in the third desert. Stop the desertification", 9);
-        EndRoom = new Room("", 7);
+        desertBaseRoom = new Room("in the desert base room. Choose a direction to go to a desert", 5);
+        desert1 = new Room("in the first desert. Stop the desertification\n" +
+                "Use commandword: roominfo for information about desertification", 6);
+        desert2 = new Room("in the second desert. Stop the desertification\n" +
+                "Use commandword: roominfo for information about desertification", 8);
+        desert3 = new Room("in the third desert. Stop the desertification\n" +
+                "Use commandword: roominfo for information about desertification", 9);
+        endRoom = new Room("", 7);
 
 
         entry.setExit("north", tutorial);
@@ -47,7 +50,7 @@ public class Game {
         tutorial.setExit("north", currencyRoom);
         tutorial.setExit("south", tutorial);
 
-        currencyRoom.setExit("north", DesertBaseRoom);
+        currencyRoom.setExit("north", desertBaseRoom);
         currencyRoom.setExit("west", currencyObtainRoom);
         currencyRoom.setExit("east", currencyObtainRoom1);
         currencyRoom.setExit("south", tutorial);
@@ -56,20 +59,20 @@ public class Game {
 
         currencyObtainRoom.setExit("east", currencyRoom);
 
-        DesertBaseRoom.setExit("north", Desert3);
-        DesertBaseRoom.setExit("west", Desert1);
-        DesertBaseRoom.setExit("east", Desert2);
-        DesertBaseRoom.setExit("south", currencyRoom);
+        desertBaseRoom.setExit("north", desert3);
+        desertBaseRoom.setExit("west", desert1);
+        desertBaseRoom.setExit("east", desert2);
+        desertBaseRoom.setExit("south", currencyRoom);
 
-        Desert1.setExit("east", DesertBaseRoom);
+        desert1.setExit("east", desertBaseRoom);
 
-        Desert2.setExit("west", DesertBaseRoom);
+        desert2.setExit("west", desertBaseRoom);
 
-        Desert3.setExit("south", DesertBaseRoom);
+        desert3.setExit("south", desertBaseRoom);
 
-        Desert3.setExit("north", EndRoom);
+        desert3.setExit("north", endRoom);
 
-        EndRoom.setExit("south", Desert3);
+        endRoom.setExit("south", desert3);
         currentRoom = entry;
     }
 
@@ -202,40 +205,54 @@ public class Game {
             if (desert1 && desert2 && desert3) {
                 boolean question1 = false, question2 = false, question3 = false;
 
-                System.out.println("You are almost finished. You need to answer the following questions correctly");
-                System.out.println("Question 1: What is 1+1");
+                System.out.println("You are almost finished. You need to answer the following questions correctly. Type A,B,C or D to give your answer.\n");
+                System.out.println("Question 1: What is the main difference between natural deserts and those created by desertification?");
+                System.out.println("A: Natural deserts contain their own ecosystem, while those created by desertification are lifeless.");
+                System.out.println("B: Natural deserts are lifeless, while those created by desertification contain their own ecosystem.");
+                System.out.println("C: In a natural desert, the temperature is much higher, which results in soil erosion.");
+                System.out.println("D: There is no difference.");
+
 
                 while (!question1) {
-                    if (input.nextLine().equals("2")) {
-                        System.out.println("Correct");
+                    System.out.print(">");
+                    if (input.nextLine().equals("A")) {
+                        System.out.println("Correct!\n");
                         question1 = true;
                     } else {
-                        System.out.println("Try again, Here are some hints");
-                        System.out.println("3    4    2");
-                        //question1 = false;
+                        System.out.println("Try another option!");
+
                     }
                 }
-                System.out.println("Here is another question");
-                System.out.println("Question 2: What is 2 + 2?");
+                System.out.println("Here is the second question");
+                System.out.println("Question 2: What is the main factor resulting in “soil death”?");
+                System.out.println("A: Excessive watering of the soil, which drowns the plant life and flushes the nutrients away, resulting in “soil death”.");
+                System.out.println("B: People using the land to create desert golf fields, resulting in “soil death”.");
+                System.out.println("C: Overgrazing the land with livestock, and planting crops on the same land excessively, hereby draining the soil of nutrients, and resulting in “soil death”.");
+                System.out.println("D: Radioactive rays from the sun “kills” the nutrients in the soil, hereby resulting in “soil death”.");
                 while (!question2) {
-                    if (input.nextLine().equals("4")) {
-                        System.out.println("Correct");
+                    System.out.print(">");
+                    if (input.nextLine().equals("C")) {
+                        System.out.println("Correct\n");
                         question2 = true;
                     } else {
-                        System.out.println("Try again, Here are some hints");
-                        System.out.println("5    4    9");
+                        System.out.println("Try another option!");
                     }
                 }
-                System.out.println("Here is another question");
-                System.out.println("Question 2: What is 2 * 6?");
+                System.out.println("Here is the last question");
+                System.out.println("Question 3: What leads to overexploitation of fertile soil?");
+                System.out.println("A: The rising world population.");
+                System.out.println("B: The demand for food.");
+                System.out.println("C: The increase in livestock and crops.");
+                System.out.println("D: A combination of all of the above.");
                 while (!question3) {
-                    if (input.nextLine().equals("12")) {
+                    System.out.print(">");
+                    if (input.nextLine().equals("D")) {
                         System.out.println("Correct. Thanks for playing");
                         question3 = true;
                         isAnswered = true;
                     } else {
-                        System.out.println("Try again, Here are some hints");
-                        System.out.println("15    14    12");
+                        System.out.println("Try another option!");
+
                     }
                 }
             } else {
@@ -279,9 +296,30 @@ public class Game {
                 break;
             }
             case 6: {
+                //desert1
                 System.out.println("This is the desert! Here your job is to plant your saplings to stop desertification, commandword is: plant");
+                System.out.println("The desertification is spreading in this room.\n" +
+                        " Unlike natural deserts, which contain their own ecosystem, deserts created from the result of desertification are lifeless.\n" +
+                        " The soil lacks nutrients and therefore not even microorganisms can thrive in it.");
                 break;
             }
+            case 8: {
+                //desert2
+                System.out.println("This is the desert! Here your job is to plant your saplings to stop desertification, commandword is: plant");
+                System.out.println("The desertification is spreading in this room. \n" +
+                        "The soil has eroded from the result of overgrazing the land with livestock and from planting crops on the same land excessively.\n" +
+                        " This overexploitation drains the soil of nutrients and results in “soil death”.");
+                break;
+            }
+            case 9: {
+                //desert3
+                System.out.println("This is the desert! Here your job is to plant your saplings to stop desertification, commandword is: plant");
+                System.out.println("The desertification is spreading in this room. \n" +
+                        "Just like it is worldwide. Because of the rising world population, the demand for food, and in turn livestock and crops, is also increasing.\n" +
+                        " This leads to overexploitation of fertile soil and eventually the spread of desertification.");
+                break;
+            }
+
             case 7: {
                 System.out.println("This is the endRoom. You have planted all the saplings required. " +
                         "\n You will now be quizzed about desertification");
