@@ -146,22 +146,33 @@ public class Game {
             }
         } else if (commandWord == CommandWord.ROOMINFO) {
             printRoomInfo();
-        } else if (commandWord == CommandWord.SELL && currentRoom.getType() == 3) {
-            if (player.hasTrash()) {
-                player.sellTrash();
+        } else if (commandWord == CommandWord.SELL) {
+           if(currentRoom.getType() == 3){
+               if (player.hasTrash()) {
+                   player.sellTrash();
+                   player.printPlayerInventory();
+               } else {
+                   System.out.println("You have no trash to sell.");
+               }
+           }else{
+               System.out.println("You can't sell anything in this room.");
+           }
+
+        } else if (commandWord == CommandWord.BUY) {
+            if(currentRoom.getType() == 3){
+                int coins = player.getCoins();
+                if (coins == 0) {
+                    System.out.println("You do not have enough coins to buy any saplings.");
+                }
+                for (int i = 0; i < coins; i++) {
+                    player.addSapling();
+                }
                 player.printPlayerInventory();
-            } else {
-                System.out.println("You have no trash to sell.");
+            }else{
+                System.out.println("You can't buy anything in this room");
             }
-        } else if (commandWord == CommandWord.BUY && currentRoom.getType() == 3) {
-            int coins = player.getCoins();
-            if (coins == 0) {
-                System.out.println("You do not have enough coins to buy any saplings.");
-            }
-            for (int i = 0; i < coins; i++) {
-                player.addSapling();
-            }
-            player.printPlayerInventory();
+
+
         } else if (commandWord == CommandWord.PLANT) {
             if (player.hasSapling())
             {
