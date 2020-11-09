@@ -76,5 +76,8 @@ public class Room
         return false;
     }
 
+    public int notUsedInt(){
+        return 4;
+    }
 }
 
