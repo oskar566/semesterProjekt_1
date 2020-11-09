@@ -201,10 +201,10 @@ public class Game {
                 }
 
             }
-            else if (currentRoom.getType() != 6 || currentRoom.getType() != 8 || currentRoom.getType() != 9) {
-                System.out.println("You can't plant here");
-            } else {
+            else if (currentRoom.getType() == 6 || currentRoom.getType() == 8 || currentRoom.getType() == 9) {
                 System.out.println("You don't have any saplings");
+            } else {
+                System.out.println("You can't plant here");
             }
             player.printPlayerInventory();
         }
@@ -266,11 +266,11 @@ public class Game {
                         isAnswered = true;
                     } else {
                         System.out.println("Try another option!");
-
                     }
                 }
             } else {
                 System.out.println("You need to stop the desertification before you can end the game");
+                System.out.println("go south to find the deserts still expanding");
             }
         }
         if (isAnswered) {
@@ -339,7 +339,6 @@ public class Game {
                         "\n You will now be quizzed about desertification");
                 break;
             }
-
         }
     }
 
@@ -356,9 +355,7 @@ public class Game {
         }
 
         String direction = command.getSecondWord();
-
         Room nextRoom = currentRoom.getExit(direction);
-
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
@@ -368,9 +365,12 @@ public class Game {
             if (nextRoom != null && nextRoom.getType() == 4) {
                 nextRoom.printRoomInventory();
             }
-            System.out.println(currentRoom.getLongDescription());
+            if(nextRoom.getType() == 7){
+                System.out.print(currentRoom.getShortDescription());
+            }else{
+                System.out.println(currentRoom.getLongDescription());
+            }
         }
-
     }
 
     private boolean quit(Command command) {
@@ -381,6 +381,4 @@ public class Game {
             return true;
         }
     }
-
-
 }
