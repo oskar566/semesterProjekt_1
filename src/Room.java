@@ -53,8 +53,33 @@ public class Room
     {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
+        int exitCount=0;
+
         for(String exit : keys) {
-            returnString += " " + exit;
+            if(exits.get(exit).getType()==3) {
+                returnString += " " + exit +"(Vendor room)";
+                exitCount++;
+            }
+            else if(exits.get(exit).getType()==4){
+                returnString += " " + exit +"(Trash Room)";
+                exitCount++;
+            }
+            else if(exits.get(exit).getType()==5){
+                returnString += " " + exit+ "(Desert base)";
+                exitCount++;
+            }
+            else if (exits.get(exit).getType()==6||exits.get(exit).getType()==8||exits.get(exit).getType()==9){
+                returnString += " " + exit +"(Desert)";
+                exitCount++;
+            }
+            else{
+                returnString += " " + exit;
+                exitCount++;
+            }
+            if(exitCount< keys.size()){
+                returnString += ",";
+            }
+
         }
         return returnString;
     }
