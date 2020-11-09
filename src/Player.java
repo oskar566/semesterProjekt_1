@@ -51,7 +51,7 @@ public class Player {
     }
 
     public void printPlayerInventory(){
-        System.out.println("Player inventory " + "Coins:" + getCoins() + " Trash:" + inventory.countTrash() +" Sapling:" + inventory.countSapling());
+        System.out.println("---Player inventory " + "Coins:" + getCoins() + " Trash:" + inventory.countTrash() +" Sapling:" + inventory.countSapling()+"---");
     }
 
     public void plant() {

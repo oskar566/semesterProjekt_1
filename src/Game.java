@@ -22,17 +22,17 @@ public class Game {
                 currencyObtainRoom1, currencyObtainRoom, desertBaseRoom, desert1,
                 desert2, desert3, endRoom;
 
-        entry = new Room("At the entry room. Here you can find information on desertification.", 1);
+        entry = new Room("At the entry room. To start the game type: go north", 1);
         tutorial = new Room("in the tutorial room. Here you can learn how to play the game. " +
                 "\nHere are some basics about the game:\n" +
                 "Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \n" +
                 "use commandword: help & roominfo for specific info on the current room", 2);
-        currencyRoom = new Room("in the vendor room. Here you can exchange your trash for saplings.", 3);
+        currencyRoom = new Room("in the vendor room. Here you can exchange your trash for saplings", 3);
 
-        currencyObtainRoom = new Room("trash room. Here you can harvest trash.", 4);
+        currencyObtainRoom = new Room("trash room. Here you can harvest trash using the commandword: pickup", 4);
         currencyObtainRoom.addTrash(8);
 
-        currencyObtainRoom1 = new Room("trash room. Here you can harvest trash.", 4);
+        currencyObtainRoom1 = new Room("trash room. Here you can harvest trash using the commandword: pickup", 4);
         currencyObtainRoom1.addTrash(5);
 
         desertBaseRoom = new Room("in the desert base room. Choose a direction to go to a desert", 5);
@@ -171,8 +171,8 @@ public class Game {
                         System.out.println("A tree has been planted");
                         saplingCount1++;
                         desert1 = false;
-                    } else if (saplingCount1 >= 2) {
-                        System.out.println("Desertification in " + currentRoom.getType() + " has been stopped");
+                    } else if (saplingCount1 > 3) {
+                        System.out.println("Desertification in the western desert has been stopped");
                         desert1 = true;
                     }
                 }
@@ -182,8 +182,8 @@ public class Game {
                         System.out.println("A tree has been planted");
                         saplingCount2++;
                         desert2 = false;
-                    } else if (saplingCount2 >= 3) {
-                        System.out.println("Desertification in " + currentRoom.getType() + " has been stopped");
+                    } else if (saplingCount2 > 4) {
+                        System.out.println("Desertification in the eastern desert has been stopped");
                         desert2 = true;
                     }
                 }
@@ -193,8 +193,9 @@ public class Game {
                         System.out.println("A tree has been planted");
                         saplingCount3++;
                         desert3 = false;
-                    } else if (saplingCount3 >= 1) {
-                        System.out.println("Desertification in " + currentRoom.getType() + " has been stopped");
+                    } else if (saplingCount3 > 5) {
+                        System.out.println("Desertification in the northern desert has been stopped");
+                        System.out.println("If desertification has been stopped in all rooms, go north to finish the game");
                         desert3 = true;
                     }
                 }
