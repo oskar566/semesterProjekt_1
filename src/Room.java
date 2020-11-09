@@ -9,6 +9,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
 
+
     // 1 = Entry, 2 = Tutorial, 3 = CurrencyRoom, 4 = currencyObtain, 5 = desertBase, 6 = desert, 7 = endRoom
     private int type;
 
@@ -21,8 +22,10 @@ public class Room
         this.type = type;
     }
 
-    public void addTrash(){
-        inventory.addTrash();
+    public void addTrash(int amountOfTrash){
+        for (int i = 0; i < amountOfTrash; i++) {
+            inventory.addTrash();
+        }
     }
     public void removeTrash(){
         inventory.removeTrash();
@@ -60,5 +63,27 @@ public class Room
     {
         return exits.get(direction);
     }
+
+    public void printRoomInventory(){
+        System.out.println("Room contains " + inventory.countTrash() + " pieces of trash.");
+    }
+
+    public boolean containsTrash(){
+        return inventory.hasTrash();
+    }
+
+    public boolean notUsed(){
+        return false;
+    }
+
+
+    public int notUsedInt(){
+        return 4;
+    }
+
+    public void notUsed2(){
+    System.out.println();
+}
+
 }
 

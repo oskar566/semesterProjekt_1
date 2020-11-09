@@ -5,7 +5,8 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Player player;
-        
+
+    Scanner input = new Scanner(System.in);
 
     public Game() 
     {
@@ -22,17 +23,19 @@ public class Game
                 Desert2, Desert3, EndRoom;
 
         entry = new Room("At the entry room. Here you can find information on desertification.", 1);
-        tutorial = new Room(" In the tutorial room. Here you can learn how to play the game. " +
-                "                        \n Here are some basics about the game:  \\n \" +\n" +
-                "                        \"           Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \\n\" +\n" +
-                "                        \"           use commandword: help & roominfo for specific info on the current room\"", 2);
+      
+        tutorial = new Room("in the tutorial room. Here you can learn how to play the game. " +
+                                        "\nHere are some basics about the game:\n" +
+                                        "Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \n" +
+                                        "use commandword: help & roominfo for specific info on the current room", 2);
+      
         currencyRoom = new Room("in the currency room. Here you can exchange your trash for saplings.", 3);
 
         currencyObtainRoom = new Room("in the currency obtain room. Here you can harvest trash.", 4);
-        currencyObtainRoom.addTrash();
+        currencyObtainRoom.addTrash(5);
 
         currencyObtainRoom1 = new Room("currency obtain room. Here you can harvest trash.", 4);
-        currencyObtainRoom1.addTrash();
+        currencyObtainRoom1.addTrash(3);
 
         DesertBaseRoom = new Room("in the desert base room. Choose a direction to go to a desert", 5);
         Desert1 = new Room("in the first desert. Stop the desertification", 6);
@@ -72,7 +75,7 @@ public class Game
     public void play() 
     {            
 
-        Scanner input = new Scanner(System.in);
+
         System.out.println("Enter your name: ");
 
         player = new Player(input.nextLine());
@@ -95,6 +98,7 @@ public class Game
         System.out.println("In this game, you will learn about desertificaiton, how to slow it down and even try it out yourself");
         System.out.println("Type '" + CommandWord.HELP + "' if you need assistance along the way!");
         System.out.println();
+        player.printPlayerInventory();
         System.out.println(currentRoom.getLongDescription());
     }
 
@@ -123,9 +127,16 @@ public class Game
             wantToQuit = quit(command);
         }
         else if (commandWord == CommandWord.PICKUP) {
-            if(currentRoom.getType() == 4){
-                player.addTrash();
-                currentRoom.removeTrash();
+          
+            if(currentRoom.getType() == 4 && currentRoom.containsTrash()){
+                while(currentRoom.containsTrash()){
+                    player.addTrash();
+                    currentRoom.removeTrash();
+                }
+                player.printPlayerInventory();
+                currentRoom.printRoomInventory();
+            }else{
+                System.out.println("Room contains no trash.");
             }
         }
         else if (commandWord == CommandWord.ROOMINFO)
@@ -135,13 +146,41 @@ public class Game
         else if(commandWord == CommandWord.SELL && currentRoom.getType() == 3){
             if(player.hasTrash()){
                 player.sellTrash();
+                player.printPlayerInventory();
+            }else{
+                System.out.println("You have no trash to sell.");
             }
         }
         else if(commandWord == CommandWord.BUY && currentRoom.getType()==3){
+            int coins=player.getCoins();
+            if(coins == 0){
+                System.out.println("You do not have enough coins to buy any saplings.");
+            }
+
+        }
+        else if(commandWord == CommandWord.BUY && currentRoom.getType()==3){
             if(player.getCoins()>0){
+
+            for(int i=0;i<coins;i++){
+
                 player.addSapling();
             }
+            player.printPlayerInventory();
         }
+        else if(commandWord == CommandWord.PLANT ){
+            if(player.hasSapling() && currentRoom.getType() == 6){
+                player.plant();
+                System.out.println("A tree has been planted");
+            }else if(currentRoom.getType() != 6){
+                System.out.println("You cant plant here");
+            }else {
+                System.out.println("You dont have any saplings");
+            }
+            player.printPlayerInventory();
+        }
+
+        endRoom();
+
         return wantToQuit;
     }
 
@@ -200,6 +239,62 @@ public class Game
 
         }
     }
+
+
+    private void printInfo()
+    {
+        System.out.println("You need to help stop the desertification");
+        System.out.println("to help you need to plant saplings in the desert");
+        System.out.println("To get saplings you need to pick up trash to sell in the CurrencyObtainRoom");
+    }
+
+    private void printRoomInfo()
+    {
+        switch(currentRoom.getType())
+        {
+            case 1:
+            {
+                System.out.println("This is the entry room \n " +
+                                    " here you can information about desertification... and not much else :)  \b ");
+                break;
+            }
+            case 2:
+            {
+                System.out.println("This is the tutorial room! Here are some basics about the game:  \n " +
+                        "           Go between rooms to pick up trash to sell for coins. Coins are used to buy saplings to plant \n" +
+                        "           use commandword help & roominfo for specific info on the current room");
+                break;
+            }
+            case 3:
+            {
+                System.out.println("This is the CurrencyRoom, here you can sell your collected trash for coins \n and buy saplings for planting, commandwords are: buy & sell");
+                break;
+            }
+            case 4:
+            {
+                System.out.println("This is the room where you collect trash.\n Collected trash can be sold for coins in the CurrencyRoom, commandwords are: pickup");
+                break;
+            }
+            case 5:
+            {
+                System.out.println("This is the desertbase, this room will guide you to the other rooms");
+                break;
+            }
+            case 6:
+            {
+                System.out.println("This is the desert! Here your job is to plant your saplings to stop desertification, commandword is: plant");
+                break;
+            }
+            case 7:
+            {
+                System.out.println("This is the endRoom. You have planted all the saplings required. " +
+                        "\n You will now be quizzed about desertification");
+                break;
+            }
+
+        }
+    }
+
     private void printHelp()
     {
         System.out.println("Your command words are:");
@@ -208,6 +303,7 @@ public class Game
 
     private void goRoom(Command command) 
     {
+
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
@@ -217,13 +313,19 @@ public class Game
 
         Room nextRoom = currentRoom.getExit(direction);
 
+
         if (nextRoom == null) {
             System.out.println("There is no door!");
         }
         else {
             currentRoom = nextRoom;
+            player.printPlayerInventory();
+            if(nextRoom != null && nextRoom.getType() == 4){
+                nextRoom.printRoomInventory();
+            }
             System.out.println(currentRoom.getLongDescription());
         }
+
     }
 
     private boolean quit(Command command) 
@@ -236,4 +338,6 @@ public class Game
             return true;
         }
     }
+
+
 }
