@@ -27,13 +27,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0878b748-c8f2-4f43-9e5e-4a684650005d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/semesterProjekt_1/CommandWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/semesterProjekt_1/CommandWord.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/semesterProjekt_1/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/semesterProjekt_1/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandWord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/semesterProjekt_1/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/semesterProjekt_1/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/semesterProjekt_1/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/semesterProjekt_1/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/semesterProjekt_1/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/semesterProjekt_1/Room.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

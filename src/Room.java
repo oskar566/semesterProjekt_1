@@ -72,5 +72,9 @@ public class Room
         return inventory.hasTrash();
     }
 
+    public boolean notUsed(){
+        return false;
+    }
+
 }
 
