@@ -244,8 +244,10 @@ public class Game {
                         System.out.println("Correct!\n");
                         question1 = true;
                     } else {
-                        System.out.println("Try another option!");
-
+                        System.out.println("Incorrect. Go back to the deserts to look for information.");
+                        currentRoom = currentRoom.getExit("south");
+                        System.out.println();
+                        System.out.println(currentRoom.getLongDescription());
                     }
                 }
                 System.out.println("Here is the second question");
@@ -260,7 +262,10 @@ public class Game {
                         System.out.println("Correct\n");
                         question2 = true;
                     } else {
-                        System.out.println("Try another option!");
+                        System.out.println("Incorrect. Go back to the deserts to look for information.");
+                        currentRoom = currentRoom.getExit("south");
+                        System.out.println();
+                        System.out.println(currentRoom.getLongDescription());
                     }
                 }
                 System.out.println("Here is the last question");
@@ -276,12 +281,17 @@ public class Game {
                         question3 = true;
                         isAnswered = true;
                     } else {
-                        System.out.println("Try another option!");
+                        System.out.println("Incorrect. Go back to the deserts to look for information.");
+                        currentRoom = currentRoom.getExit("south");
+                        System.out.println();
+                        System.out.println(currentRoom.getLongDescription());
                     }
                 }
             } else {
-                System.out.println("You need to stop the desertification before you can end the game");
-                System.out.println("go south to find the deserts still expanding");
+                System.out.println("You need to stop the desertification before you can end the game.");
+                currentRoom = currentRoom.getExit("south");
+                System.out.println();
+                System.out.println(currentRoom.getLongDescription());
             }
         }
         if (isAnswered) {
@@ -373,6 +383,7 @@ public class Game {
         } else {
             currentRoom = nextRoom;
             player.printPlayerInventory();
+            System.out.println();
             if (nextRoom != null && nextRoom.getType() == 4) {
                 nextRoom.printRoomInventory();
             }

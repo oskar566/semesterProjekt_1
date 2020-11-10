@@ -46,7 +46,7 @@ public class Room
 
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return "You are " + description + ".\n\n" + getExitString();
     }
 
     private String getExitString()
@@ -72,6 +72,10 @@ public class Room
                 returnString += " " + exit +"(Desert)";
                 exitCount++;
             }
+            else if(exits.get(exit).getType()==7){
+                returnString += " " + exit+ "(End Quiz)";
+                exitCount++;
+            }
             else{
                 returnString += " " + exit;
                 exitCount++;
@@ -81,7 +85,8 @@ public class Room
             }
 
         }
-        return returnString;
+
+        return returnString + "\n";
     }
 
     public Room getExit(String direction) 
