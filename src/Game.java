@@ -240,7 +240,7 @@ public class Game {
 
                 while (!question1) {
                     System.out.print(">");
-                    if (input.nextLine().equals("A")) {
+                    if (input.nextLine().equalsIgnoreCase("A")) {
                         System.out.println("Correct!\n");
                         question1 = true;
                     } else {
@@ -258,7 +258,7 @@ public class Game {
                 System.out.println("D: Radioactive rays from the sun “kills” the nutrients in the soil, hereby resulting in “soil death”.");
                 while (!question2) {
                     System.out.print(">");
-                    if (input.nextLine().equals("C")) {
+                    if (input.nextLine().equalsIgnoreCase("C")) {
                         System.out.println("Correct\n");
                         question2 = true;
                     } else {
@@ -276,7 +276,7 @@ public class Game {
                 System.out.println("D: A combination of all of the above.");
                 while (!question3) {
                     System.out.print(">");
-                    if (input.nextLine().equals("D")) {
+                    if (input.nextLine().equalsIgnoreCase("D")) {
                         System.out.println("Correct. Thanks for playing");
                         question3 = true;
                         isAnswered = true;
