@@ -176,43 +176,45 @@ public class Game {
         } else if (commandWord == CommandWord.PLANT) {
             if (player.hasSapling()) {
                 if (currentRoom.getType() == 6) {
-                    if (saplingCount1 <= 2) {
+                    if (saplingCount1 < 3) {
                         player.plant();
                         System.out.println("A tree has been planted");
                         saplingCount1++;
                         desert1 = false;
-                    } else if (saplingCount1 >= 2) {
+                    } else {
                         System.out.println("Desertification in the western desert has been stopped");
                         desert1 = true;
                     }
                 }
                 if (currentRoom.getType() == 8) {
-                    if (saplingCount2 <= 3) {
+                    if (saplingCount2 < 4) {
                         player.plant();
                         System.out.println("A tree has been planted");
                         saplingCount2++;
                         desert2 = false;
-                    } else if (saplingCount2 >= 3) {
+                    } else {
                         System.out.println("Desertification in the eastern desert has been stopped");
                         desert2 = true;
                     }
                 }
                 if (currentRoom.getType() == 9) {
-                    if (saplingCount3 <= 1) {
+                    if (saplingCount3 < 5) {
                         player.plant();
                         System.out.println("A tree has been planted");
                         saplingCount3++;
                         desert3 = false;
-                    } else if (saplingCount3 >= 1) {
+                    } else {
                         System.out.println("Desertification in the northern desert has been stopped");
                         System.out.println("If desertification has been stopped in all rooms, go north to finish the game");
                         desert3 = true;
                     }
                 }
 
-            } else if (currentRoom.getType() == 6 || currentRoom.getType() == 8 || currentRoom.getType() == 9) {
+            }
+            if (!player.hasSapling()) {
                 System.out.println("You don't have any saplings");
-            } else {
+            }
+            if(currentRoom.getType() != 6 && currentRoom.getType() != 8 && currentRoom.getType() != 9) {
                 System.out.println("You can't plant here");
             }
             player.printPlayerInventory();
