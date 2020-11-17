@@ -176,37 +176,51 @@ public class Game {
         } else if (commandWord == CommandWord.PLANT) {
             if (player.hasSapling()) {
                 if (currentRoom.getType() == 6) {
-                    if (saplingCount1 < 3) {
+                    if (saplingCount1 < 3 && !desert1) {
                         player.plant();
                         System.out.println("A tree has been planted");
                         saplingCount1++;
-                        desert1 = false;
-                    } else {
-                        System.out.println("Desertification in the western desert has been stopped");
-                        desert1 = true;
+
+                        if(saplingCount1 >= 2){
+                            System.out.println("Desertification in the western desert has been stopped");
+                            desert1 = true;
+                        }
                     }
+                    if(desert1){
+                        System.out.println("Desertification in the western desert has been stopped");
+                    }
+
                 }
                 if (currentRoom.getType() == 8) {
-                    if (saplingCount2 < 4) {
+                    if (saplingCount2 < 4 && !desert2) {
                         player.plant();
                         System.out.println("A tree has been planted");
                         saplingCount2++;
-                        desert2 = false;
-                    } else {
+
+
+                        if(saplingCount2 >= 3){
+                            System.out.println("Desertification in the eastern desert has been stopped");
+                            desert2 = true;
+                        }
+                    }
+                    if(desert2){
                         System.out.println("Desertification in the eastern desert has been stopped");
-                        desert2 = true;
                     }
                 }
                 if (currentRoom.getType() == 9) {
-                    if (saplingCount3 < 5) {
+                    if (saplingCount3 < 5 && !desert3) {
                         player.plant();
                         System.out.println("A tree has been planted");
                         saplingCount3++;
-                        desert3 = false;
-                    } else {
+
+                        if(saplingCount3 >= 4){
+                            System.out.println("Desertification in the northern desert has been stopped");
+                            System.out.println("If desertification has been stopped in all rooms, go north to finish the game");
+                            desert3 = true;
+                        }
+                    }
+                    if(desert3){
                         System.out.println("Desertification in the northern desert has been stopped");
-                        System.out.println("If desertification has been stopped in all rooms, go north to finish the game");
-                        desert3 = true;
                     }
                 }
 
