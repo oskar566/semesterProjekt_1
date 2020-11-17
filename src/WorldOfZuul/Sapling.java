@@ -1,7 +1,10 @@
-public class Trash extends Item {
+package WorldOfZuul;
 
-    public Trash() {
-        super("Trash", 1, 1);
+public class Sapling extends Item {
+    
+
+    public Sapling() {
+        super("Sapling", 5, 1);
     }
 
 

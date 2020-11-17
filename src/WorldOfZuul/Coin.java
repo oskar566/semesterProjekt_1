@@ -1,3 +1,5 @@
+package WorldOfZuul;
+
 public class Coin {
 
     private static int amount;
