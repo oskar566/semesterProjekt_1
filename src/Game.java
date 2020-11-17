@@ -147,19 +147,19 @@ public class Game {
         } else if (commandWord == CommandWord.ROOMINFO) {
             printRoomInfo();
         } else if (commandWord == CommandWord.SELL) {
-           if(currentRoom.getType() == 3){
-               if (player.hasTrash()) {
-                   player.sellTrash();
-                   player.printPlayerInventory();
-               } else {
-                   System.out.println("You have no trash to sell.");
-               }
-           }else{
-               System.out.println("You can't sell anything in this room.");
-           }
+            if (currentRoom.getType() == 3) {
+                if (player.hasTrash()) {
+                    player.sellTrash();
+                    player.printPlayerInventory();
+                } else {
+                    System.out.println("You have no trash to sell.");
+                }
+            } else {
+                System.out.println("You can't sell anything in this room.");
+            }
 
         } else if (commandWord == CommandWord.BUY) {
-            if(currentRoom.getType() == 3){
+            if (currentRoom.getType() == 3) {
                 int coins = player.getCoins();
                 if (coins == 0) {
                     System.out.println("You do not have enough coins to buy any saplings.");
@@ -168,7 +168,7 @@ public class Game {
                     player.addSapling();
                 }
                 player.printPlayerInventory();
-            }else{
+            } else {
                 System.out.println("You can't buy anything in this room");
             }
 
@@ -181,12 +181,12 @@ public class Game {
                         System.out.println("A tree has been planted");
                         saplingCount1++;
 
-                        if(saplingCount1 >= 2){
+                        if (saplingCount1 >= 2) {
                             System.out.println("Desertification in the western desert has been stopped");
                             desert1 = true;
                         }
                     }
-                    if(desert1){
+                    if (desert1) {
                         System.out.println("Desertification in the western desert has been stopped");
                     }
 
@@ -198,12 +198,12 @@ public class Game {
                         saplingCount2++;
 
 
-                        if(saplingCount2 >= 3){
+                        if (saplingCount2 >= 3) {
                             System.out.println("Desertification in the eastern desert has been stopped");
                             desert2 = true;
                         }
                     }
-                    if(desert2){
+                    if (desert2) {
                         System.out.println("Desertification in the eastern desert has been stopped");
                     }
                 }
@@ -213,13 +213,13 @@ public class Game {
                         System.out.println("A tree has been planted");
                         saplingCount3++;
 
-                        if(saplingCount3 >= 4){
+                        if (saplingCount3 >= 4) {
                             System.out.println("Desertification in the northern desert has been stopped");
                             System.out.println("If desertification has been stopped in all rooms, go north to finish the game");
                             desert3 = true;
                         }
                     }
-                    if(desert3){
+                    if (desert3) {
                         System.out.println("Desertification in the northern desert has been stopped");
                     }
                 }
@@ -228,7 +228,7 @@ public class Game {
             if (!player.hasSapling()) {
                 System.out.println("You don't have any saplings");
             }
-            if(currentRoom.getType() != 6 && currentRoom.getType() != 8 && currentRoom.getType() != 9) {
+            if (currentRoom.getType() != 6 && currentRoom.getType() != 8 && currentRoom.getType() != 9) {
                 System.out.println("You can't plant here");
             }
             player.printPlayerInventory();
