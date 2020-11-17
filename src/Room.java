@@ -9,6 +9,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
 
+
     // 1 = Entry, 2 = Tutorial, 3 = CurrencyRoom, 4 = currencyObtain, 5 = desertBase, 6 = desert, 7 = endRoom
     private int type;
 
@@ -21,8 +22,10 @@ public class Room
         this.type = type;
     }
 
-    public void addTrash(){
-        inventory.addTrash();
+    public void addTrash(int amountOfTrash){
+        for (int i = 0; i < amountOfTrash; i++) {
+            inventory.addTrash();
+        }
     }
     public void removeTrash(){
         inventory.removeTrash();
@@ -43,22 +46,61 @@ public class Room
 
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return "You are " + description + ".\n\n" + getExitString();
     }
 
     private String getExitString()
     {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
+        int exitCount=0;
+
         for(String exit : keys) {
-            returnString += " " + exit;
+            if(exits.get(exit).getType()==3) {
+                returnString += " " + exit +"(Vendor room)";
+                exitCount++;
+            }
+            else if(exits.get(exit).getType()==4){
+                returnString += " " + exit +"(Trash Room)";
+                exitCount++;
+            }
+            else if(exits.get(exit).getType()==5){
+                returnString += " " + exit+ "(Desert base)";
+                exitCount++;
+            }
+            else if (exits.get(exit).getType()==6||exits.get(exit).getType()==8||exits.get(exit).getType()==9){
+                returnString += " " + exit +"(Desert)";
+                exitCount++;
+            }
+            else if(exits.get(exit).getType()==7){
+                returnString += " " + exit+ "(End Quiz)";
+                exitCount++;
+            }
+            else{
+                returnString += " " + exit;
+                exitCount++;
+            }
+            if(exitCount< keys.size()){
+                returnString += ",";
+            }
+
         }
-        return returnString;
+
+        return returnString + "\n";
     }
 
     public Room getExit(String direction) 
     {
         return exits.get(direction);
     }
+
+    public void printRoomInventory(){
+        System.out.println("Room contains " + inventory.countTrash() + " pieces of trash.");
+    }
+
+    public boolean containsTrash(){
+        return inventory.hasTrash();
+    }
+
 }
 

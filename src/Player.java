@@ -2,36 +2,35 @@ import java.util.ArrayList;
 
 public class Player {
 
-    private static int coins;
+
     private static String name;
     private static Inventory inventory;
     private static Coin coin;
 
 
-    public Player(String name){
+    public Player(String playerName){
 
         inventory = new Inventory();
         coin = new Coin();
-        this.name = name;
+        name = playerName;
 
     }
 
-
-    public void waterSapling(){
-
-    }
 
     public boolean hasTrash(){
         return inventory.hasTrash();
     }
+
     public void plantTree(){
        inventory.removeSapling();
 
     }
 
     public void sellTrash(){
-        inventory.removeTrash();
-        coin.addCoin();
+        while(inventory.hasTrash()){
+            inventory.removeTrash();
+            coin.addCoin();
+        }
     }
 
     public void addTrash(){
@@ -48,6 +47,18 @@ public class Player {
     }
 
     public String getName(){
-        return this.name;
+        return name;
+    }
+
+    public void printPlayerInventory(){
+        System.out.println("---Player inventory " + "Coins:" + getCoins() + " Trash:" + inventory.countTrash() +" Sapling:" + inventory.countSapling()+"---");
+    }
+
+    public void plant() {
+        inventory.removeSapling();
+    }
+
+    public boolean hasSapling() {
+        return inventory.hasSapling();
     }
 }
